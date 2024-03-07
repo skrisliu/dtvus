@@ -1,8 +1,8 @@
 # Racial and Ethnic Minorities Disproportionately Exposed to Extreme Daily Temperature Variation in the United States
 
-[Shengjie Liu](https://skrisliu.com), [Emily Smith-Greenaway](http://emilysmithgreenaway.org/)
+Authors: [Shengjie Liu](https://skrisliu.com), [Emily Smith-Greenaway](http://emilysmithgreenaway.org/)
 
-Code and Data: [https://github.com/skrisliu/dtvus](https://github.com/skrisliu/dtvus)
+Data and code are released here: [https://github.com/skrisliu/dtvus](https://github.com/skrisliu/dtvus)
 
 ### Figure 1: World Maps of Daily Temperature Variation and Population Density
 
