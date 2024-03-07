@@ -15,7 +15,7 @@ Data and code are released here: [https://github.com/skrisliu/dtvus](https://git
 
 ## Zonal Statistics as Tables
 
-Zonal statistics of the LST data, each month each year, to the census tract. This is the base data for anlaysis. We did this analysis on ArcGIS (paid software), but with some techniques QGIS (open source) or some packages in Python should be able to do the job. 
+Zonal statistics of the LST data, each month each year, to census tracts. This is the base data for anlaysis. We did this analysis on ArcGIS (paid software), but with some techniques, it should be able to do the job with QGIS (open source) or in Python. 
     
 
 ## Figure 1
