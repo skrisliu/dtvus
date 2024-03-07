@@ -4,7 +4,8 @@ Authors: [Shengjie Liu](https://skrisliu.com), [Emily Smith-Greenaway](http://em
 
 Data and code are released here: [https://github.com/skrisliu/dtvus](https://github.com/skrisliu/dtvus)
 
-### Figure 1: World Maps of Daily Temperature Variation and Population Density
+
+## Figure 1: World Maps of Daily Temperature Variation and Population Density
 
 #### Population Density
 
@@ -15,7 +16,7 @@ The world’s annual mean daily temperature variation data in Fig. 1 is from the
 The population density data is from the NASA Center for International Earth Science Information Network at Columbia University. We use the gridded population of the world v4 in 2000-2020 ([https://sedac.ciesin.columbia.edu/data/collection/gpw-v4](https://sedac.ciesin.columbia.edu/data/collection/gpw-v4)).
 
 
-### Figure 2: Distribution of the exposure to daily temperature variation (DTV) of White and non-White populations
+## Figure 2: Distribution of the exposure to daily temperature variation (DTV) of White and non-White populations
 
 ### run the following scripts in order
 
