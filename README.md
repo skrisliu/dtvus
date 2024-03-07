@@ -7,7 +7,7 @@ Data and code are released here: [https://github.com/skrisliu/dtvus](https://git
 
 ## Obtain Public Data
     U.S. Census Tract Shapefile
-    Long-term MODIS LST day-time and night-time temperatures, sd and differences at 1 km based on the 2000–2020 time series
+    Long-term MODIS LST day-time and night-time temperatures, sd and differences at 1 km based on the 2000–2017 time series
     ACS Table DP05 (race and ethnicity, age), census tract level
     ACS Table S1901 (income), census tract level
     ACS Table DP04 (rent), census tract level
