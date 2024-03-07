@@ -31,3 +31,9 @@ The population density data is from the NASA Center for International Earth Scie
 
 #### 4. Load the kernel density estimation of White and non-White populations from (2), load the statistics from (3), make Figure 2
     python makefig2_4.py
+
+
+## Figure 3
+
+### Monthly DTV difference of 51 states, by race and ethnicity, income, and age
+    python HeatMap.py
