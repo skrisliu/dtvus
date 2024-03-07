@@ -1,6 +1,6 @@
 # Racial and Ethnic Minorities Disproportionately Exposed to Extreme Daily Temperature Variation in the United States
 
-Authors: [Shengjie Liu](https://skrisliu.com), [Emily Smith-Greenaway](http://emilysmithgreenaway.org/)
+[Shengjie Liu](https://skrisliu.com), [Emily Smith-Greenaway](http://emilysmithgreenaway.org/)
 
 Data and code are released here: [https://github.com/skrisliu/dtvus](https://github.com/skrisliu/dtvus)
 
