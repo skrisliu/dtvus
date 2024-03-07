@@ -21,13 +21,13 @@ The population density data is from the NASA Center for International Earth Scie
 ### Run the following scripts in order
 
 #### 1. Generate population-weighted exposure data of each state by race and ethnicity, save the data in folder
-    --python makefig2_1.py
+    python makefig2_1.py
 
 #### 2. Load the population-weighted exposure data, merged to White and non-White, then kernel density estimation
-    --python makefig2_2.py
+    python makefig2_2.py
 
 #### 3. Calculate K-S statistics
-    --python makefig2_3.py
+    python makefig2_3.py
 
 #### 4. Load the kernel density estimation of White and non-White populations from (2), load the statistics from (3), make Figure 2
-    --python makefig2_4.py
+    python makefig2_4.py
