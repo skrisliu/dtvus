@@ -12,6 +12,12 @@ Data and code are released here, or check [https://github.com/skrisliu/dtvus](ht
     ACS Table S1901 (income), census tract level
     ACS Table DP04 (rent), census tract level
 
+## Python's package version
+    numpy==1.24.3
+    matplotlib==3.7.2
+    pandas==2.0.3
+    seaborn==0.12.2
+
 
 ## Zonal Statistics as Tables
 
