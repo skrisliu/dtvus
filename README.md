@@ -12,14 +12,14 @@ Data and code are released here, or check [https://github.com/skrisliu/dtvus](ht
     ACS Table S1901 (income), census tract level
     ACS Table DP04 (rent), census tract level
 
-## Python's package version
+## Python Package Version
     numpy==1.24.3
     matplotlib==3.7.2
     pandas==2.0.3
     seaborn==0.12.2
 
 
-## Zonal Statistics as Tables
+## Zonal Statistics as Table
 
 Zonal statistics of the LST data, each month each year, to census tracts. This is the base data for anlaysis. We did this analysis on ArcGIS (paid software), but with some techniques, it should be able to do the job with QGIS (open source) or in Python. 
     
