@@ -1,24 +1,37 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue May  9 15:57:06 2023
+Released 20240307
 
-@author: sjliu
+@author: skrisliu
+skrisliu@gmail.com
+
+# INPUT
+    -- "us-state-ansi-fips.csv": state code
+    -- the individual files within saved1a_individual_race, generated from makefig2_1.py
+
+# CREATE:
+    -- folder "plot1hist_data_mean": to save KDE estimation
+    
+# OUTPUT
+    -- files within folder "plot1hist_data_mean": distributions estimated from KDE, each state
+
+# WARNING: this script will take ~30 mins to run
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-# import geopandas as gpd
-# from simpledbf import Dbf5
-# import pickle
 import seaborn as sns
-# import sklearn
-# from sklearn.neighbors import KernelDensity
 
-MODE = 'MEAN'
-# MODE = 'MAY'
 
-apath = r'M:\MTL4\t20240224_USDTR_r1/'
+'''
+# change here if you want only the exposure in May
+'''
+MODE = 'MEAN'  # "May"
+# MODE = 'MAY'  
+
+apath = r'M:\MTL4\t20240224_USDTR_r1\release20240307/'  # change apath to the folder
+
 months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
 
 #%%
@@ -32,11 +45,11 @@ statecode = pd.read_csv(apath + 'doc/us-state-ansi-fips.csv')
 #%%
 SKIP = 0
 for idx,row in statecode.iterrows():
-    # SKIP+=1
+    # SKIP+=1  # this process can take ~30 minutes. Created this in case the need of start half-way
     # if SKIP<8:
         # continue
     
-    #%%
+    #%% For debug purpose to show individual state
     # _code = '09'
     # _stname = 'Connecticut'
     
@@ -49,7 +62,7 @@ for idx,row in statecode.iterrows():
         data[each] = []
     for each in es:
         for m in ms:
-            x = np.load('saved1a_individual_race/'+_code+'_'+_stname+'_'+m+'_'+each+'.npy')
+            x = np.load('saved1a_individual_race/'+_code+'_'+_stname+'_'+m+'_'+each+'.npy')   # output from makefig2_1.py
             data[each].append(x)
     #%%
     xx = {}
@@ -60,8 +73,8 @@ for idx,row in statecode.iterrows():
             xx[each] = data[each][4]
     xx['COLOR'] = np.concatenate([xx['HISPANIC'],xx['BLACK'],xx['ASIAN'],xx['OTHER']])
     
-    delta = np.nanmean(xx['WHITE']) # California=16.336786
-    np.save('plot1hist_data_mean/'+_code+_stname+'_delta.npy',delta)
+    delta = np.nanmean(xx['WHITE'])
+    np.save('plot1hist_data_mean/'+_code+_stname+'_delta.npy',delta) # save White's exposure as the scale factor
     
     #%%
     es2 = ['HISPANIC','WHITE','BLACK','ASIAN','OTHER','COLOR']
@@ -84,8 +97,8 @@ for idx,row in statecode.iterrows():
     ax = plt.gca()
     a1 = ax.lines[1].get_xydata()
     a2 = ax.lines[2].get_xydata()
-    np.save('plot1hist_data_mean/'+_code+_stname+'_white.npy',a1)
-    np.save('plot1hist_data_mean/'+_code+_stname+'_color.npy',a2)
+    np.save('plot1hist_data_mean/'+_code+_stname+'_white.npy',a1)  # save KED estimation of white
+    np.save('plot1hist_data_mean/'+_code+_stname+'_color.npy',a2)  # save KED estimation of non-white
     ax = plt.gca()
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -103,9 +116,9 @@ for idx,row in statecode.iterrows():
     plt.text(0.38,5.4,_stname,fontsize=10,horizontalalignment='left',verticalalignment='bottom')
     plt.text(0.38,4.9,'Scale='+"%.2f" % delta +'°C',fontsize=10,horizontalalignment='left',verticalalignment='bottom')
     plt.tight_layout()
-    plt.savefig('plot1hist_data_mean_fig/'+_code+_stname+'.pdf')
-    plt.savefig('plot1hist_data_mean_fig/'+_code+_stname+'.svg')
-    plt.savefig('plot1hist_data_mean_fig/'+_code+_stname+'.png')
+    # plt.savefig('plot1hist_data_mean_fig/'+_code+_stname+'.pdf') # these figures will be made together in the later stage. Uncomment to see them individually now
+    # plt.savefig('plot1hist_data_mean_fig/'+_code+_stname+'.svg')
+    # plt.savefig('plot1hist_data_mean_fig/'+_code+_stname+'.png')
     plt.show()
 
 

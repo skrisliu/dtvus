@@ -11,6 +11,8 @@ Data and code are released here, or check [https://github.com/skrisliu/dtvus](ht
     ACS Table DP05 (race and ethnicity, age), census tract level
     ACS Table S1901 (income), census tract level
     ACS Table DP04 (rent), census tract level
+	
+After downloading the ACS table, please delete the 2nd row "description" and save them as the "clean" version used in the code. We prepared the exposure table (census tract, MODIS LST) here for the for the ease of use. 
 
 ## Python Package Version
     numpy==1.24.3
