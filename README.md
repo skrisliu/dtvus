@@ -12,7 +12,7 @@ This is a GitHub repo at [https://github.com/skrisliu/dtvus](https://github.com/
     ACS Table S1901 (income), census tract level
     ACS Table DP04 (rent), census tract level
 	
-After downloading the ACS table, please delete the 2nd row "description" and save them as the "clean" version used in the code. We prepared the exposure table (census tract, MODIS LST) here for the ease of use. 
+After downloading the ACS table, please delete the 2nd row "description" and save them as the "clean" version used in the code. We prepared the exposure table ("dfmtable.pkl") here for the ease of use. 
 
 ## Python Package Version
     numpy==1.24.3
