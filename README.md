@@ -2,7 +2,7 @@
 
 [Shengjie Liu](https://skrisliu.com), [Emily Smith-Greenaway](http://emilysmithgreenaway.org/)
 
-Data and code are released here, or check [https://github.com/skrisliu/dtvus](https://github.com/skrisliu/dtvus)
+This is a GitHub repo at [https://github.com/skrisliu/dtvus](https://github.com/skrisliu/dtvus)
 
 
 ## Obtain Public Data
