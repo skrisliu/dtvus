@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<link href="js/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Large daily temperature swings can increase health risks – with the minority and low-income populations affected the most</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="js/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0 auto;
+            padding: 0;
+			width: 50%;
+        }
+
+        #map {
+            position: relative;
+            height: 800px;
+            width: 100%;
+        }
+
+        .mapboxgl-popup {
+            max-width: 500px;
+        }
+
+		div.scroll-container {
+		  background-color: #333;
+		  overflow: auto;
+		  white-space: nowrap;
+		  padding: 10px;
+		}
+
+		div.scroll-container img {
+		  padding: 10px;
+		}
+    </style>
+</head>
+
+
+<body>
+
+
+<div>
+<h2>Large daily temperature swings can increase health risks – with the minority and low-income populations affected the most</h2>
+
+
+<p>It is widely appreciated that extreme temperatures can pose major health risks to humans. This summer's new cycle has highlighted record-breaking temperatures across the country, and the lives claimed as result, making clear the real health consequences of extreme temperatures. </p>
+
+<p>Yet, scientists are increasingly recognizing that it is not just the absolute temperature that can be consequential for human health, but also how much the temperature changes in a single day. That is, how many degrees the temperature swings within a day – which scientists typically refer to as the “daily temperature variation” – itself poses health risks for humans—above and beyond the absolute temperatures which have been making the news in recent weeks. Studies have found that days with larger temperature swings can increase the risk of asthma, respiratory diseases, and cardiovascular diseases, leading to an overall higher hospitalization and mortality risk. In fact, a study estimates that temperature swings accounted for about 2.5% of the total mortality in 308 cities from 1972 to 2013.</p>
+
+<p>Although the emerging science makes clear that temperature swings are a historically overlooked dimension of the climate that can pose unique health risks, the academic literature lacks basic insights into inequality in exposure to them across the U.S. Although temperature swings are fundamentally a physical property of the regional climate, they can be affected by urban landscape—such that neighborhoods within the same county can feature widely different temperature swings. Water, or called blue space, has a high specific heat capacity that can mitigate rapid temperature changes. The Greater Los Angeles area is a case in point. Santa Monica—a community in LA county that is coastal has much smaller temperature swings then more inland neighborhoods in the county, like downtown Los Angeles. In addition to blue space, green space can also reduce temperature swings. Further, vegetation in a neighborhood can affect temperature swings, such that trees reduce the volatility of the climate.</p>
+
+<p>Given that the built environment can affect the extent to which an area experiences temperature swings, in the context of residential segregation this raises questions of whether there is population inequality in exposure to temperature swings. Does the legacy of residential segregation and discriminatory housing practices mean that racial minorities in the U.S. are more likely to live in neighborhoods with more dramatic temperature swings? Further, are the poorest Americans more likely to reside in neighborhoods with more dramatic temperature swings than wealthier Americans? </p>
+
+<h3>Our study</h3>
+
+<p>To answer these questions, we set out to map the daily temperature variation across the U.S. with an interest in which populations are most exposed to more dramatic temperature swings. Using NASA’s satellite data between 2000 and 2017, we cross-checked the variation with the American Community Survey’s demographical data at different census tracts. We compared the population-based exposure in the 50 states and the District of Columbia based on different race and ethnicity, income groups, and age groups. </p>
+
+<div class="scroll-container">
+  <img src="im1.png" alt="White vs. non-White">
+  <img src="im2.png" alt="High-income vs. low-income">
+  <img src="im3.png" alt="Old-age vs. young-age">
+</div>
+<p><small>Distributions of population-weighted exposure to daily temperature variation by three demographical factors. For White vs. non-White (1st figure), 46 states with yellow background are with inequality. For high-income vs. low-income (2nd figure), 39 states with yellow background are with inequality. For old-age vs. young age (3rd figure), 15 states with yellow background are with inequality. Inequality is larger with darker yellow background.</small></p>
+
+<p>We find that, of the three demographic factors, exposure to daily temperature variation is the most unequal by race and ethnicity, followed by income, and the least by age. We used a statistics measure called the Kolmogorov–Smirnov distance to measure the difference in exposure, with a larger distance, the larger the inequality. We find that, the distance in exposure to daily temperature variation is larger than 0.1 between non-White and White populations in 46 states. This number is 39 between low-income and high-income populations, and 20 between the two age groups with the largest difference. The magnitude of different by race and ethnicity is as large as 5.4°F (3°C), larger than the magnitude of urban heat island effects. You can navigate the temperature swings of each state by race and ethnicity through an interactive map below (see a demo here). </p>
+
+    <div style="float:left;" id="map">
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1Ijoic3RvcDY4IiwiYSI6ImNqY2tqdmY5ZjN1c2kzM28zN3pncTkxc3kifQ.5O5ns1xgihc9i6XvQxCFJQ';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/dark-v10',
+                center: [-100, 38],
+                zoom: 4
+            });
+            map.on('load', () => {
+                // Add a source for the state polygons.
+                map.addSource('states', {
+                    'type': 'geojson',
+                    'data': 'https://sjliu.me/usdtr1/usstatesmall2.geojson'
+                });
+
+                // Add a layer showing the state polygons.
+                map.addLayer({
+                    'id': 'states-layer',
+                    'type': 'fill',
+                    'source': 'states',
+                    'paint': {
+                        'fill-color': 'rgba(200, 100, 240, 0.4)',
+                        'fill-outline-color': 'rgba(200, 100, 240, 1)'
+                    }
+                });
+
+                // When a click event occurs on a feature in the states layer,
+                // open a popup at the location of the click, with description
+                // HTML from the click event's properties.
+                map.on('click', 'states-layer', (e) => {
+                    var name = e.features[0].properties.name;
+                    var imlink = "https://sjliu.me/usdtr1/dtr1/" + name + ".png";
+                    new mapboxgl.Popup()
+                        .setLngLat(e.lngLat)
+                        .setHTML("<p><a href=\"" + imlink + "\" target=\"_blank\"><img alt=\"dtr1\" src=\"" + imlink + "\" width=\"500\"></a></p>")
+                        .setMaxWidth("550px")
+                        .addTo(map);
+                });
+
+                // Change the cursor to a pointer when
+                // the mouse is over the states layer.
+                map.on('mouseenter', 'states-layer', () => {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+
+                // Change the cursor back to a pointer
+                // when it leaves the states layer.
+                map.on('mouseleave', 'states-layer', () => {
+                    map.getCanvas().style.cursor = '';
+                });
+            });
+        </script>
+    </div>
+<p><small>Daily temperature swings of Hispanic, Black, Asian, and White populations, of each month, of each state. This is an interactive map;  click on the state of interest.</small></p>
+
+
+<div> </div>
+
+<h3>Looking ahead</h3>
+
+<p>The fact that minority populations are disproportionately living in neighborhoods with wider temperature swings confirms yet another dimension of inequality in vulnerability to climate shocks. What’s more concerning is that there is evidence that temperature swings will only get more dramatic over time. From 1950s to 1980s, record shows shrinking temperature swings in the world. Since the 1990s, research shows that widening temperature swings, potentially affecting all life on Earth. However, our study makes clear that some population groups will be more burdened than others. </p>
+
+<p>Under the IPCC’s highest emission scenario (RCP 8.5), future temperature swings are projected to increase by −0·4 to 1·6°C, particularly in the U.S. Excess deaths due to large temperature swings are projected to increase, up to 6% of total mortality in the U.S. The solution to reduced temperature swings is consistent with climate change mitigation. And, to reduce disparities in exposure to temperature swings, action must be taken in the minority and low-income communities.  </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+</body>
+</html>
