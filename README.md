@@ -1,9 +1,17 @@
+# AGU 2024
+
+Disparities in Daily Temperature Variation Exposure Across U.S. Population and Income Groups
+
+Check out the poster presentation at AGU 2024, Tuesday afternoon: GH23A-2541 Tuesday 20241210 13:40 - 17:30 EST
+
+Shengjie Liu personal homepage: [skrisliu.com](https://skrisliu.com)
+
+
 # Racial and Ethnic Minorities Disproportionately Exposed to Extreme Daily Temperature Variation in the United States
 
 [Shengjie Liu](https://skrisliu.com) (University of Southern California), [Emily Smith-Greenaway](http://emilysmithgreenaway.org/) (University of Southern California)
 
 This is a GitHub repo at [https://github.com/skrisliu/dtvus](https://github.com/skrisliu/dtvus)
-
 
 ## Obtain Public Data
     U.S. Census Tract Shapefile
