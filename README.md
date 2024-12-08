@@ -10,7 +10,7 @@ Journal version published in PNAS Nexus: [https://doi.org/10.1093/pnasnexus/pgae
 
 Want to know the DTV exposure by race and ethnicity in all 50 states? Go to this interactive map: [https://skrisliu.com/dtvus/map.html](https://skrisliu.com/dtvus/map.html)
 
-This research has been featured in multiple media outlets, including the [United Nations PreventionWeb](https://www.preventionweb.net/news/heat-risk-isnt-just-about-highs-large-daily-temperature-swings-can-harm-human-health-maps-show)
+This research has been featured in multiple media outlets, including the [United Nations PreventionWeb](https://www.preventionweb.net/news/heat-risk-isnt-just-about-highs-large-daily-temperature-swings-can-harm-human-health-maps-show).
 
 
 # Racial and Ethnic Minorities Disproportionately Exposed to Extreme Daily Temperature Variation in the United States
