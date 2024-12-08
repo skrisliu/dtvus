@@ -6,6 +6,12 @@ Check out the poster presentation at AGU 2024, Tuesday afternoon: GH23A-2541 Tue
 
 Shengjie Liu personal homepage: [skrisliu.com](https://skrisliu.com)
 
+Journal version published in PNAS Nexus: [https://doi.org/10.1093/pnasnexus/pgae176](https://doi.org/10.1093/pnasnexus/pgae176)
+
+Want to know the DTV exposure by race and ethnicity in all 50 states? Go to this interactive map: [https://skrisliu.com/dtvus/map.html](https://skrisliu.com/dtvus/map.html)
+
+This research has been featured in multiple media outlets, including the [United Nations PreventionWeb](https://www.preventionweb.net/news/heat-risk-isnt-just-about-highs-large-daily-temperature-swings-can-harm-human-health-maps-show)
+
 
 # Racial and Ethnic Minorities Disproportionately Exposed to Extreme Daily Temperature Variation in the United States
 
