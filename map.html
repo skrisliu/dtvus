@@ -91,7 +91,7 @@
                 // HTML from the click event's properties.
                 map.on('click', 'states-layer', (e) => {
                     var name = e.features[0].properties.name;
-                    var imlink = "https://sjliu.me/usdtr1/dtr1/" + name + ".png";
+                    var imlink = "https://skrisliu.com/usdtr1/dtr1/" + name + ".png";
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
                         .setHTML("<p><a href=\"" + imlink + "\" target=\"_blank\"><img alt=\"dtr1\" src=\"" + imlink + "\" width=\"500\"></a></p>")
@@ -116,3 +116,4 @@
 </body>
 
 </html>
+
