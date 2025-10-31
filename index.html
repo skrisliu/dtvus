@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>dtvus: daily temperature variation in the U.S.</title>
+  <link rel="stylesheet" href="x/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0Y5PM7E86"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-C0Y5PM7E86');
+  </script>
+
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KTP8BB68');
+  </script>
+</head>
+
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTP8BB68" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+	  
+  <div class="container-lg px-3 my-5 markdown-body">
+
+    <h1><a href="https://skrisliu.com/dtvus/">dtvus</a></h1>
+
+    <h1 id="agu-2024">AGU 2024</h1>
+
+    <p>Disparities in Daily Temperature Variation Exposure Across U.S. Population and Income Groups</p>
+
+    <p>Check out the poster presentation at AGU 2024, Tuesday afternoon: GH23A-2541 Tuesday 20241210 13:40 - 17:30 EST
+    </p>
+
+    <p><strong>Shengjie Liu</strong> personal homepage: <a href="https://skrisliu.com">skrisliu.com</a></p>
+
+    <p>Journal version published in PNAS Nexus: <a
+        href="https://doi.org/10.1093/pnasnexus/pgae176">https://doi.org/10.1093/pnasnexus/pgae176</a></p>
+
+    <p>Want to know the DTV exposure by race and ethnicity in all 50 states? Go to this interactive map: <a
+        href="https://skrisliu.com/dtvus/map.html">https://skrisliu.com/dtvus/map.html</a></p>
+
+    <p>This research has been featured in multiple media outlets, including the <a
+        href="https://www.preventionweb.net/news/heat-risk-isnt-just-about-highs-large-daily-temperature-swings-can-harm-human-health-maps-show">United
+        Nations PreventionWeb</a>.</p>
+
+    <p><img src="agu2024.jpeg" alt="AGU 2024 Poster" /></p>
+
+    <h1
+      id="racial-and-ethnic-minorities-disproportionately-exposed-to-extreme-daily-temperature-variation-in-the-united-states">
+      Racial and Ethnic Minorities Disproportionately Exposed to Extreme Daily Temperature Variation in the United
+      States</h1>
+
+    <p><a href="https://skrisliu.com">Shengjie Liu</a> (University of Southern California), <a
+        href="http://emilysmithgreenaway.org/">Emily Smith-Greenaway</a> (University of Southern California)</p>
+
+    <p>This is a GitHub repo at <a href="https://github.com/skrisliu/dtvus">https://github.com/skrisliu/dtvus</a></p>
+
+    <h2 id="obtain-public-data">Obtain Public Data</h2>
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>U.S. Census Tract Shapefile
+Long-term MODIS LST day-time and night-time temperatures, sd and differences at 1 km based on the 2000–2017 time series
+ACS Table DP05 (race and ethnicity, age), census tract level
+ACS Table S1901 (income), census tract level
+ACS Table DP04 (rent), census tract level
+</code></pre>
+      </div>
+    </div>
+
+    <p>After downloading the ACS table, please delete the 2nd row “description” and save them as the “clean” version
+      used in the code. We prepared the exposure table (“dfmtable.pkl”) here for the ease of use.</p>
+
+    <h2 id="python-package-version">Python Package Version</h2>
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>numpy==1.24.3
+matplotlib==3.7.2
+pandas==2.0.3
+seaborn==0.12.2
+</code></pre>
+      </div>
+    </div>
+
+    <h2 id="zonal-statistics-as-table">Zonal Statistics as Table</h2>
+
+    <p>Zonal statistics of the LST data, each month each year, to census tracts. This is the base data for anlaysis. We
+      did this analysis on ArcGIS (paid software), but with some techniques, it should be able to do the job with QGIS
+      (open source) or in Python.</p>
+
+    <h2 id="figure-1">Figure 1</h2>
+
+    <h3 id="population-density">Population Density</h3>
+
+    <p>The world’s annual mean daily temperature variation data in Fig. 1 is from the WorldClim v2 dataset 1970-2000,
+      publicly available on <a href="https://www.worldclim.com/version2">their website</a>.</p>
+
+    <h3 id="daily-temperature-variations">Daily Temperature Variations</h3>
+
+    <p>The population density data is from the NASA Center for International Earth Science Information Network at
+      Columbia University. We use the gridded population of the world v4 in 2000-2020 (<a
+        href="https://sedac.ciesin.columbia.edu/data/collection/gpw-v4">https://sedac.ciesin.columbia.edu/data/collection/gpw-v4</a>).
+    </p>
+
+    <h2 id="figure-2">Figure 2</h2>
+
+    <h3 id="run-the-following-scripts-in-order">Run the following scripts in order</h3>
+
+    <h4 id="1-generate-population-weighted-exposure-data-of-each-state-by-race-and-ethnicity-save-the-data-in-folder">1.
+      Generate population-weighted exposure data of each state by race and ethnicity, save the data in folder</h4>
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>python makefig2_1.py
+</code></pre>
+      </div>
+    </div>
+
+    <h4
+      id="2-load-the-population-weighted-exposure-data-merge-as-white-and-non-white-then-run-kernel-density-estimation-save-kde-in-folder">
+      2. Load the population-weighted exposure data, merge as White and non-White, then run kernel density estimation,
+      save KDE in folder</h4>
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>python makefig2_2.py
+</code></pre>
+      </div>
+    </div>
+
+    <h4 id="3-calculate-k-s-statistics">3. Calculate K-S statistics</h4>
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>python makefig2_3.py
+</code></pre>
+      </div>
+    </div>
+
+    <h4
+      id="4-load-the-kernel-density-estimation-of-white-and-non-white-populations-from-2-load-the-statistics-from-3-make-figure-2">
+      4. Load the kernel density estimation of White and non-White populations from (2), load the statistics from (3),
+      make Figure 2</h4>
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>python makefig2_4.py
+</code></pre>
+      </div>
+    </div>
+
+    <h2 id="figure-3">Figure 3</h2>
+
+    <h3 id="monthly-dtv-difference-of-51-states-by-race-and-ethnicity-income-and-age">Monthly DTV difference of 51
+      states, by race and ethnicity, income, and age</h3>
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>python HeatMap.py
+</code></pre>
+      </div>
+    </div>
+
+    <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+      This site is open source. <a href="https://github.com/skrisliu/dtvus/edit/main/README.md">Improve this page</a>.
+    </div>
+
+  </div>
+</body>
+
+</html>
